@@ -1,0 +1,123 @@
+﻿@model SPEvents.Models.Event
+
+
+@{
+    ViewData["Title"] = "Edit";
+    IEnumerable<EventUser> users = ViewData["users"] as IEnumerable<EventUser>;
+    IEnumerable<EventUser> sel_users = ViewData["sel_users"] as IEnumerable<EventUser>;
+}
+
+<h1>Edit</h1>
+
+<h4>Event</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="title" class="control-label">Title</label>
+                <input asp-for="title" class="form-control" />
+                <span asp-validation-for="title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="location" class="control-label">Location</label>
+                <input asp-for="location" class="form-control" />
+                <span asp-validation-for="location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="datetime" class="control-label">Date</label>
+                <input asp-for="datetime" class="form-control" />
+                <span asp-validation-for="datetime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label">Description</label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="category" class="control-label">Category</label>
+                <input asp-for="category" class="form-control" />
+                <span asp-validation-for="category" class="text-danger"></span>
+            </div>
+            <p><h5>Select members for this event.</h5></p>
+            <div>
+                @if (users != null)
+                {
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                First Name
+                                @* @Html.DisplayNameFor(model => model.EventsUsers[0].eu.lastname)*@
+                            </th>
+                            <th>
+                                Last Name
+                                @*Html.DisplayNameFor(model => model.EventsUsers[0].eu.lastname)*@
+                            </th>
+                            <!-- <th>
+         Date of Birth
+         @*Html.DisplayNameFor(model => model.EventsUsers[0].eu.dob)*@
+     </th>
+     <th>
+         Postcode
+         @*Html.DisplayNameFor(model => model.EventsUsers[0].eu.postcode)*@
+     </th>-->
+                            <th>
+                                Personal Contact
+                                @*Html.DisplayNameFor(model => model.EventsUsers[0].eu.contactnumber)*@
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in users) {
+                            bool inc = false;
+                            foreach (var auser in sel_users)
+                            {
+                                if (auser.euid == item.euid)
+                                    inc = true;
+                            }
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.firstname)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.lastname)
+                            </td>
+                            <!--  <td>
+          @*Html.DisplayFor(modelItem => item.dob)*@
+      </td>
+      <td>
+          @*Html.DisplayFor(modelItem => item.postcode)*@
+      </td>-->
+                            <td>
+                                @Html.DisplayFor(modelItem => item.contactnumber)
+                            </td>
+                            <td>
+                                <input type="checkbox" name="user" value="@item.euid" checked="@inc" />
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                }
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

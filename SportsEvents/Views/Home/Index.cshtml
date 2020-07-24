@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sporting Events  Trending Now </h1>
+    <!--<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>-->
+
+    <p>TAKE A LOOK AT THESE HOT UPCOMING EVENTS IN THE WORLD OF SPORT !</p>
+</div>
+
+@model IEnumerable<SPEvents.Models.Event>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!--<h1>Upcoming Events</h1>-->
+
+    
+        @foreach (var item in Model)
+        {
+
+            <div class="column" style="float:left;width:300px;margin-bottom:16px;padding:0 8px;display:block">
+
+                <div class="card text-white bg-dark mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"> @Html.DisplayFor(modelItem => item.title)</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.location)</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.datetime)</h6>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.description)</p>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.category)</p>
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+        }
+
+ 
+

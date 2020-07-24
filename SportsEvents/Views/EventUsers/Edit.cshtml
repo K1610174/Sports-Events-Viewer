@@ -1,0 +1,79 @@
+﻿@model SPEvents.Models.EventUser
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Members</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="euid" />
+            <div class="form-group">
+                <label asp-for="firstname" class="control-label">First Name</label>
+                <input asp-for="firstname" class="form-control" />
+                <span asp-validation-for="firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lastname" class="control-label">Last Name</label>
+                <input asp-for="lastname" class="form-control" />
+                <span asp-validation-for="lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="contactnumber" class="control-label">Personal Contact</label>
+                <input asp-for="contactnumber" class="form-control" />
+                <span asp-validation-for="contactnumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="workcontact" class="control-label">Work Contact</label>
+                <input asp-for="workcontact" class="form-control" />
+                <span asp-validation-for="workcontact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dob" class="control-label">Date of Birth</label>
+                <input asp-for="dob" class="form-control" />
+                <span asp-validation-for="dob" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="address1" class="control-label">Address Line 1</label>
+                <input asp-for="address1" class="form-control" />
+                <span asp-validation-for="address1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="address2" class="control-label">Address Line 2</label>
+                <input asp-for="address2" class="form-control" />
+                <span asp-validation-for="address2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="postcode" class="control-label">Postcode</label>
+                <input asp-for="postcode" class="form-control" />
+                <span asp-validation-for="postcode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="city" class="control-label">City</label>
+                <input asp-for="city" class="form-control" />
+                <span asp-validation-for="city" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="workplace" class="control-label">Work Location</label>
+                <input asp-for="workplace" class="form-control" />
+                <span asp-validation-for="workplace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

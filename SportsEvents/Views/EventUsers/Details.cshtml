@@ -1,0 +1,88 @@
+﻿@model SPEvents.Models.EventUser
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Firstname
+            @*Html.DisplayNameFor(model => model.firstname)*@
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.firstname)
+        </dd>
+        <dt class="col-sm-2">
+            Lastname
+            @*Html.DisplayNameFor(model => model.lastname)*@
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.lastname)
+        </dd>
+        <dt class="col-sm-2">
+            Personal Contact
+            @*Html.DisplayNameFor(model => model.contactnumber)*@
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.contactnumber)
+        </dd>
+        <dt class="col-sm-2">
+            Work Contact
+            @*Html.DisplayNameFor(model => model.workcontact)*@
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.workcontact)
+        </dd>
+        <dt class="col-sm-2">
+            Date of Birth
+            @*Html.DisplayNameFor(model => model.dob)*@
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.dob)
+        </dd>
+        <dt class="col-sm-2">
+            Address Line 1
+            @*Html.DisplayNameFor(model => model.address1)*@
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.address1)
+        </dd>
+        <dt class="col-sm-2">
+            Address Line 2
+            @*Html.DisplayNameFor(model => model.address2)*@
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.address2)
+        </dd>
+        <dt class="col-sm-2">
+            Postcode
+            @*Html.DisplayNameFor(model => model.postcode)*@
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.postcode)
+        </dd>
+        <dt class="col-sm-2">
+            City
+            @*Html.DisplayNameFor(model => model.city)*@
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.city)
+        </dd>
+        <dt class="col-sm-2">
+            Work Location
+            @*Html.DisplayNameFor(model => model.workplace)*@
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.workplace)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.euid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

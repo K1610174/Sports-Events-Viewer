@@ -1,0 +1,64 @@
+﻿@model SPEvents.Models.Event
+
+@{
+    ViewData["Title"] = "Details";
+    IEnumerable<EventUser> users = ViewData["users"] as IEnumerable<EventUser>;
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.location)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.datetime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.datetime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.category)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<div>
+    @if (users != null)
+    {
+        <h3 style="color:darkslategray">Members</h3>
+        <hr />
+        @foreach(var item in users) {
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @item.firstname @item.lastname
+                </dt>
+            </dl>
+        }
+    }
+</div>
